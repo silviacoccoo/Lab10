@@ -6,6 +6,7 @@ class DAO:
     Implementare tutte le funzioni necessarie a interrogare il database.
     """
 
+    # Questo metodo lo usiamo per i nodi
     @staticmethod
     def estrai_tutti_hub():
         cnx=DBConnect.get_connection()
@@ -13,10 +14,10 @@ class DAO:
 
         if cnx is None:
             print('❌ Errore nella connessione al database')
-            return None
+            return {}
 
         cursor=cnx.cursor(dictionary=True)
-        query='SELCT * FROM hub'
+        query='SELECT * FROM hub'
         cursor.execute(query)
         for row in cursor:
             # Per ogni riga del cursore creo un oggetto hub e lo aggiungo al risultato
@@ -27,7 +28,7 @@ class DAO:
                 citta=row['citta'],
                 stato=row['stato'],
                 latitudine=row['latitudine'],
-                longitudine=row['longitude']
+                longitudine=row['longitudine']
             )
             risultato[hub.id]=hub
             # Il dizionario ha come chiave l'id e come valore l'oggetto hub
@@ -35,6 +36,7 @@ class DAO:
         cnx.close()
         return risultato
 
+    # Questo metodo lo usiamo per gli archi
     @staticmethod
     def estrai_spedizioni():
         conn=DBConnect.get_connection() # Creo la connessione
@@ -42,7 +44,7 @@ class DAO:
 
         if conn is None:
             print('❌ Errore nella connessione al database')
-            return None # Se c'è un errore nella connessione il metodo non deve restituire niente
+            return [] # Se c'è un errore nella connessione il metodo non deve restituire niente
 
         cursor=conn.cursor(dictionary=True)
         # Per ogni riga prendo gli hub della spedizione
