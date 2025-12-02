@@ -39,11 +39,11 @@ class Controller:
 
         # Mostra il numero totale dei nodi del grafo
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"Numero di Hubs: {num_nodi}")
+            ft.Text(f"Numero di hubs: {num_nodi}")
         )
         # Mostra il numero degli archi
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"Numero di Tratte: {num_archi}")
+            ft.Text(f"Numero di tratte: {num_archi}")
         )
 
         # Se non ci sono archi, non stampiamo l'elenco
