@@ -39,20 +39,15 @@ class Controller:
 
         # Mostra il numero totale dei nodi del grafo
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"Numero di Hub presenti (Nodi): {num_nodi}", weight=ft.FontWeight.BOLD)
+            ft.Text(f"Numero di Hubs: {num_nodi}")
         )
         # Mostra il numero degli archi
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"Numero di Tratte valide (Archi, soglia: {soglia:.2f} €): {num_archi}",
-                    weight=ft.FontWeight.BOLD)
+            ft.Text(f"Numero di Tratte: {num_archi}")
         )
 
         # Se non ci sono archi, non stampiamo l'elenco
         if num_archi > 0:
-            self._view.lista_visualizzazione.controls.append(
-                ft.Text("--- Elenco Tratte Valide (Hub - Hub | Guadagno Medio) ---", size=16,
-                        weight=ft.FontWeight.W_600)
-            )
 
             # Elenco di tutte le tratte, ciascuna accompagnata dal rispettivo valore
             for hub_id1, hub_id2, data in tutte_le_tratte:
@@ -63,7 +58,7 @@ class Controller:
                 nome2 = self._model._nodes[hub_id2].nome
 
                 self._view.lista_visualizzazione.controls.append(
-                    ft.Text(f"   - {nome1} <-> {nome2} | {peso:.2f} €")
+                    ft.Text(f"[{nome1} <-> {nome2}] -- Guadagno medio per spedizione: {peso:.2f} €")
                 )
 
         self._view.update()
