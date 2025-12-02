@@ -39,11 +39,11 @@ class Controller:
 
         # Mostra il numero totale dei nodi del grafo
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"⭐ Numero di Hub presenti (Nodi): {num_nodi}", weight=ft.FontWeight.BOLD)
+            ft.Text(f"Numero di Hub presenti (Nodi): {num_nodi}", weight=ft.FontWeight.BOLD)
         )
         # Mostra il numero degli archi
         self._view.lista_visualizzazione.controls.append(
-            ft.Text(f"🔗 Numero di Tratte valide (Archi, soglia: {soglia:.2f} €): {num_archi}",
+            ft.Text(f"Numero di Tratte valide (Archi, soglia: {soglia:.2f} €): {num_archi}",
                     weight=ft.FontWeight.BOLD)
         )
 
